@@ -5,3 +5,8 @@
 /world/
 /players/
 /resources/
+
+#M ine
+dragonfly.exe
+prv_*
+dev_*
