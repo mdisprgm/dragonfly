@@ -36,13 +36,14 @@ func main() {
 
 	//loop
 	for {
-		if _, err := srv.Accept(); err != nil { //어셉트 실패하면 서버 종료(어셉트 뭐하는지 아모른직다)
+		if _, err := srv.Accept(); err != nil {
 			return
 		}
 	}
 }
 
-// readConfig config.toml에서 구성 불러옴, 파일 없으면 새로 생성
+// readConfig reads the configuration from the config.toml file, or creates the file if it does not yet exist.
+// config.toml에서 구성 불러옴, 파일 없으면 새로 생성
 func readConfig() (server.Config, error) {
 	c := server.DefaultConfig()                               //(파일 없을 때 새로 만들 파일에 들어갈?) 기본 구성
 	if _, err := os.Stat("config.toml"); os.IsNotExist(err) { //존재하지 않으면
